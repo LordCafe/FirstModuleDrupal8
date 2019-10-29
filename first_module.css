@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css?family=EB+Garamond&display=swap');
+#first-module{
+	
+}
+
+#first-module  section > header {
+ font-size: 25px;
+ font-weight: bold;
+ font-family: 'EB Garamond', serif;
+}
+
+.content{
+ display: relative ;
+}
+
+.content > img{
+ height: 150px;
+ width:25%;
+ display: inline-block;
+}
+
+.content > p {
+	display: inline-block;
+	width: 60%;
+	margin: 0px  10px;
+	vertical-align: top;
+}
+
+
+.content a > img{
+ height: 150px;
+ width:25%;
+ display: inline-block;
+}
+
+.content a > p {
+	display: inline-block;
+	width: 60%;
+	margin: 0px  10px;
+	vertical-align: top;
+	color: black;
+}

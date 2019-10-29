@@ -1,0 +1,9 @@
+name: First module for drupal 8.
+description: First custom module 
+package: Custom
+type: module
+version : 1.0
+core: 8.x
+libraries:
+  # These libararies are added globally
+  - first_module/global

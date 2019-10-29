@@ -1,0 +1,27 @@
+<?php
+
+
+function  first_module_theme($existing,$type,$theme,$path){
+	return array(
+		'Helloblock'=>array(
+			'variables'=>array(),
+		),
+
+		'Firstblock'=>array(
+			'variables'=>array(),
+		),
+
+		'PrincipalTemplate'=>array(
+			'variables'=>['nodes'=>NULL],
+		),
+
+
+		'PrincipalApi'=>array(
+			'variables'=>['items'=>NULL],
+		)
+	);
+}
+
+function first_module_page_attachments(array &$attachments) {
+	
+}

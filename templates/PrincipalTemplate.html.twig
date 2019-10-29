@@ -1,0 +1,12 @@
+<div id="first-module">
+  {% for node in nodes %}
+  <section>
+    <header>{{ node.title}}</header>
+    <div class="content">
+      <img src="{{node.image}}">
+    	<p>{{node.body}}</p>
+    </div>
+    
+  </section>
+  {% endfor %}
+</div>

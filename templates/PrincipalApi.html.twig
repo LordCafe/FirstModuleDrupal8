@@ -1,0 +1,57 @@
+  <div id="first-module">
+  {% for item in items %}
+  <section>
+    <header>{{ item.title}}</header>
+    <div class="content">
+      <a href="{{item.url}}">
+        <img src="{{item.urlToImage}}">
+        <p>{{item.description}}</p>
+      </a>
+    </div>
+    <div class="source">
+      {{item.source.name}}
+    </div>
+  </section>
+  {% endfor %}
+</div>
+<button id="MoreNews" data-pages="1">More news</button>
+<script type="text/javascript">
+let more = document.querySelector('#MoreNews');
+document.addEventListener('DOMContentLoaded', function() {
+  let SettingsNews = drupalSettings.NewsApi;
+  let counter = 1;
+  let FatherTemplate = document.querySelector('#first-module');
+  more.addEventListener('click', function(event) {
+  	let pages = parseInt(this.dataset.pages);
+  	counter = counter + pages;
+    var url = new URL(SettingsNews.BaseUrl + '/top-headlines'),
+      params = {
+        'country': 'us',
+        'apiKey': SettingsNews.ApiKey,
+        'pageSize':5,
+        'page': counter,
+      }
+
+    Object.keys(params).forEach(key => url.searchParams.append(key, params[key]));
+
+
+
+    fetch(url).then((Response) => {
+      return Response.json();
+    }).then(({ articles }) => {
+      articles.forEach((article, index) => {
+        let clone = FatherTemplate.firstElementChild.cloneNode(true);
+        clone.querySelector('header').innerText = article.title;
+        clone.querySelector('a').href = article.url;
+        clone.querySelector('p').innerText = article.description;
+        clone.querySelector('img').src = article.urlToImage;
+        clone.querySelector('.source').innerText = article.source.name;
+        FatherTemplate.appendChild(clone);
+
+      });
+
+    })
+  });
+});
+
+</script>
